@@ -1,7 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+    <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-
-<t:pageTemplate pageTitle="ParkingLot">
-    <h1>ie3whcvbow</h1>
-</t:pageTemplate>
+    <t:pageTemplate pageTitle="Parking Lot">
+        <h2>Bine ai venit în aplicația de parcare!</h2>
+        <p>Acesta este conținutul specific acestei pagini.</p>
+    </t:pageTemplate>
