@@ -7,22 +7,20 @@
     <meta charset="UTF-8">
     <title>${pageTitle}</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<header>
-    <h1>${pageTitle}</h1>
-    <nav>
-        <a href="${pageContext.request.contextPath}/parkingLot.jsp">Acasă</a> |
-        <a href="${pageContext.request.contextPath}/about.jsp">Despre</a>
-    </nav>
-</header>
-
-<main>
+<jsp:include page="/WEB-INF/pages/menu.jsp" />
+<main class="container-fluid mt-5">
     <jsp:doBody/>
+
 </main>
 
+
 <footer>
-    <p>&copy; 2025 - Parking System</p>
+    <jsp:include page="/WEB-INF/pages/footer.jsp" />
 </footer>
 </body>
 </html>
