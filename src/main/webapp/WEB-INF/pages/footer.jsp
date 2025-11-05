@@ -9,6 +9,6 @@
 <html>
 
 <body>
-<footer class="footer mt-auto py-3 bg-body-tertiary"> <div class="container"> <span class="text-body-secondary">P footer tent here.</span> </div> </footer>
+<footer class="footer mt-auto py-3 bg-body-tertiary"> <div class="container"> <span class="text-body-secondary">P footertent here.</span> </div> </footer>
 </body>
 </html>
