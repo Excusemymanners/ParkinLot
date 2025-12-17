@@ -82,24 +82,13 @@ public class CarsBean {
     }
 
     public void updateCar(Long carId, String licensePlate, String parkingSpot, Long userId) {
-        LOG.info("updateCar");
-
         Car car = entityManager.find(Car.class, carId);
+        User newUser = entityManager.find(User.class, userId);
+
         car.setLicensePlate(licensePlate);
         car.setParkingSpot(parkingSpot);
-
-        // 1. Scoatem mașina de la vechiul proprietar (dacă există)
-        User oldUser = car.getOwner();
-        if (oldUser != null) {
-            oldUser.getCars().remove(car);
-        }
-
-        // 2. Adăugăm mașina la noul proprietar
-        User user = entityManager.find(User.class, userId);
-        if (user != null) {
-            user.getCars().add(car);
-            car.setOwner(user);
-        }
+        car.setOwner(newUser);
+        // JPA va face update la cheia străină owner_id automat la finalul metodei.
     }
 
     public void deleteCarsByIds(List<Long> carIds) {
