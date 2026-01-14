@@ -4,11 +4,41 @@
 
 <t:pageTemplate pageTitle="Cars">
     <h1>Cars</h1>
+
+
+   <div id="cars">
+       <input placeholder="Search..."  value="${car.licensePlate}"  />
+       <div><div class="col">
+               ${car.parkingSpot}
+       </div>
+           <div class="col">
+                   ${car.ownerName}
+           </div>
+           <div class="col">
+               <img src="${pageContext.request.contextPath}/CarPhotos?id=${car.id}" width="48"/>
+           </div>
+       </div>
+   </div>
+    <div><div class="col">
+            ${car.licensePlate}
+    </div>
+        <div class="col">
+                ${car.parkingSpot}
+        </div>
+        <div class="col">
+                ${car.ownerName}
+        </div>
+        <div class="col">
+            <img src="${pageContext.request.contextPath}/CarPhotos?id=${car.id}" width="48"/>
+        </div>
+
     <form method="POST" action="${pageContext.request.contextPath}/Cars">
         <c:if test="${pageContext.request.isUserInRole('WRITE_CARS')}">
             <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/AddCar">Add Car</a>
             <button class="btn btn-danger" type="submit">Delete Cars</button>
         </c:if>
+
+
         <div class="container text-center">
             <c:forEach var="car" items ="${cars}">
                 <div class="row">
