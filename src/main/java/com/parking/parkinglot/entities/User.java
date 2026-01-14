@@ -1,4 +1,4 @@
-package org.example.parkinglot.entities;
+package com.parking.parkinglot.entities;
 
 import jakarta.persistence.*;
 
@@ -8,6 +8,9 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User {
+    @OneToMany(mappedBy = "owner", orphanRemoval = true)
+    private List<Car> cars = new ArrayList<>();
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
@@ -22,19 +25,16 @@ public class User {
     @Column(name = "username")
     private String username;
 
-    public String getPassword() {
-        return password;
-    }
-
-    @OneToMany(mappedBy = "owner", orphanRemoval = true)
-    private List<Car> cars = new ArrayList<>();
-
     public List<Car> getCars() {
         return cars;
     }
 
     public void setCars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {

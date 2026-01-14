@@ -1,24 +1,36 @@
-package org.example.parkinglot.entities;
+package com.parking.parkinglot.entities;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "parking_spot")
-    private String parkingSpot;
-
     @Column(name = "license_plate")
     private String licensePlate;
+
+    @Column(name = "parking_spot")
+    private String parkingSpot;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
+
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private CarPhoto photo;
+
+
+    public CarPhoto getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(CarPhoto photo) {
+        this.photo = photo;
+    }
 
     public User getOwner() {
         return owner;
